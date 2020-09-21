@@ -1,6 +1,7 @@
 import functools
 import json
 import operator
+import os
 from collections import Counter, namedtuple
 from multiprocessing import Pool, cpu_count
 from pprint import pprint
@@ -112,7 +113,7 @@ PAGE_SIZE = 100
 def a_library_high_school(page):
     # 주어진 페이저 번호의 대출 도서 목록을 가져온다.
     params = {
-        "authKey": "***REMOVED***",
+        "authKey": os.environ.get('LIBRARY_API_KEY'),
         "from_age": 17,
         "to_age": 19,
         "format": "json",
@@ -140,7 +141,7 @@ def library_high_school(n):
 # def library_high_school(n):
 #     # 가장 인기많은 순서대로 n개를 가져온다.
 #     params = {
-#         "authKey": "***REMOVED***",
+#         "authKey": "API KEY",
 #         "from_age": 17,
 #         "to_age": 19,
 #         "format": "json",
