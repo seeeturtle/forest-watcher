@@ -18,7 +18,7 @@ def home():
 def register():
 
     data = {
-        "list_ids": ["***REMOVED***"],  # 'forest-watcher' list
+        "list_ids": [os.environ.get("***REMOVED***")],  # 'forest-watcher' list
         "contacts": [
             {"email": request.form["email"]},
         ],

@@ -47,7 +47,7 @@ def new_alb(**kwargs):
 
 def aladin_from_isbn13(isbn13):
     params = {
-        "TTBKey": "***REMOVED***",
+        "TTBKey": os.environ.get("ALADIN_API_KEY"),
         "ItemId": isbn13,
         "ItemIdType": "ISBN13",
         "Output": "JS",
