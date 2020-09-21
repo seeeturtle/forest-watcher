@@ -34,19 +34,20 @@
                         </table>
                     </td>
                 </tr>
+		{% for item in items %}
                 <tr>
                     <td align="center">
                         <table cellspacing="0" cellpadding="0" border="0" width="500">
                             <tr>
                                 <td valign="top" align="left" width="200">
-				    <img src="https://image.aladin.co.kr/product/5305/11/cover500/8966261256_1.jpg" alt="some cover" width="200" height="auto"/> 
+				    <img src="{item.cover}" alt="some cover" width="200" height="auto"/> 
                                 </td>
                                 <td valign="top" align="left" width="100%">
 				    <table cellspacing="0" cellpadding="0" border="0" width="100%">
 					<tr>
 					    <!-- <td style="border-bottom:1px solid gray;"> -->
 					    <td>
-						<h2 style="margin:0">CODE 코드</h2>
+						<h2 style="margin:0">{item.title}</h2>
 					    </td>
 					</tr>
 					<tr>
@@ -55,9 +56,9 @@
 					</tr>
 					<tr>
 					    <td>
-						<p>정원상|정씨네 출판사</p>
+						<p>{item.author}|{item.publisher}</p>
 						<strong>22,000원</strong>
-						<p><a href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=53051178">구매하기</a><p>
+						<p><a href="{item.link}">구매하기</a><p>
 					    </td>
 				    </table>
 				</td>
@@ -65,6 +66,7 @@
                         </table>
                     </td>
                 </tr>
+		{% endfor %}
             </table>
         </td>
     </tr>
