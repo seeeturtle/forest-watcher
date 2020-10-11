@@ -1,13 +1,75 @@
 <!doctype html>
 <html>
 	<head>
+		<meta charset="utf-8">
 		<title>숲을 보다</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
 	</head>
 	<body>
-		<h1>숲을 보다</h1>
-		<form action="{{ register }}" method=post>
-		<input type="email" name="email"/>
-		</form>
-		<button type="submit">구독</button>
 	</body>
+  <section class="hero is-success">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">숲을 보다</h1>
+      <h2 class="subtitle">여러분이 바쁠때 대신 책들의 숲을 지키고 있는 파수꾼입니다.</h2>
+    </div>
+  </div>
+</section>
+<section class="section">
+    <div class="container">
+	<h1 class="title">"숲을 보다"가 뭔가요?</h1>
+	<h2 class="subtitle">
+	    "숲을 보다"는 책에 대해 관심을 갖기 힘든 <strong>고등학생들이</strong> 한달에 한번씩 <strong>원하는 만큼 원하는 분야의 신간 도서를</strong> 이메일로 구독할 수 있는 뉴스레터입니다.
+    </div>
+</section>
+<section class="section">
+    <div class="container">
+	<h1 class="title">그러면 어떻게 구독할 수 있나요?</h1>
+	<h2 class="subtitle">
+	    바로 여기 아래에 <strong>이메일, 원하는 분야, 원하는 도서 권수를</strong> 입력하고 구독 버튼을 눌러주세요
+	    <form action="{{register}}" method="post">
+	    <div class="field">
+		<label class="label">이메일</label>
+		<div class="control">
+		    <input name="email" class="input" type="email" placeholder="example@example.com">
+		</div>
+	    </div>
+	    <div class="field is-grouped is-grouped-multiline">
+		<p class="control">
+		<label class="label">분야</label>
+		</p>
+		<p class="control">
+		{% for c in categories %}
+		<label class="checkbox is-size-4">
+		    <input type="checkbox" name="{{c}}" value="{{c}}">
+		    {{ c }}
+		</label>
+		<p>
+		{% endfor %}
+	    </div>
+	    <div class="field">
+		<label class="label">도서 개수</label>
+		<div class="control">
+		    <div class="select">
+			<select name="num">
+			    {% for n in ns %}
+			    <option value="{{n}}">{{n}}권</option>
+			    {% endfor %}
+			</select>
+		    </div>
+		</div>
+	    </div>
+	    <div class="control">
+		<button class="button is-success">구독</button>
+	    </div>
+	    </form>
+	</h2>
+	<!-- <body> -->
+	<!-- 	<h1>숲을 보다</h1> -->
+	<!-- 	<form action="{{ register }}" method=post> -->
+	<!-- 	<input type="email" name="email"/> -->
+	<!-- 	</form> -->
+	<!-- 	<button type="submit">구독</button> -->
+	<!-- </body> -->
 </html>
